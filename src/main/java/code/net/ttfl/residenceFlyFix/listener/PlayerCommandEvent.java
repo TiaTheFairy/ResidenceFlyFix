@@ -25,8 +25,7 @@ public class PlayerCommandEvent implements Listener {
 
             if(commands.stream().anyMatch(str -> event.getMessage().startsWith(str))){
                 event.setCancelled(true);
-                player.sendMessage("ban command!");
-                plugin.sendMessage("off", event.getPlayer());
+                plugin.sendMessage("no-command", event.getPlayer());
             }
         }
     }

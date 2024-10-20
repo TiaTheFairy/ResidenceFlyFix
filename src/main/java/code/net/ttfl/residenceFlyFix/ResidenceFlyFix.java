@@ -41,10 +41,6 @@ public final class ResidenceFlyFix extends JavaPlugin {
         getCommand("rff").setExecutor(commandHandler);
         getCommand("residenceflyfix").setTabCompleter(commandHandler);
         getCommand("rff").setTabCompleter(commandHandler);
-
-        ConfigurationSection section = this.getConfig().getConfigurationSection("message");
-        System.out.println(section);
-        System.out.println(section.getString("off"));
     }
 
     @Override
@@ -53,9 +49,15 @@ public final class ResidenceFlyFix extends JavaPlugin {
     }
 
     public void registerEventListeners(){
-        getServer().getPluginManager().registerEvents(new PlayerMoveEvent(this), this);
-        getServer().getPluginManager().registerEvents(new PlayerCommandEvent(this), this);
-        getServer().getPluginManager().registerEvents(new PlayerFlyEvent(this), this);
+        if(getConfig().getBoolean("event.move")){
+            getServer().getPluginManager().registerEvents(new PlayerMoveEvent(this), this);
+        }
+        if(getConfig().getBoolean("event.command")){
+            getServer().getPluginManager().registerEvents(new PlayerCommandEvent(this), this);
+        }
+        if(getConfig().getBoolean("event.flight")) {
+            getServer().getPluginManager().registerEvents(new PlayerFlyEvent(this), this);
+        }
     }
 
     public boolean canFly(Player player){
@@ -68,18 +70,15 @@ public final class ResidenceFlyFix extends JavaPlugin {
     }
 
     public void sendMessage(String key, Player player){
-        ConfigurationSection section = this.getConfig().getConfigurationSection("message");
-        System.out.println(section);
-        System.out.println(section.getString("off"));
-//        System.out.println(this.getConfig());
-//        System.out.println(key);
-//        String message = getConfig().getString("message." + key);
-//        System.out.println(message);
-//
-//        if(message.contains("&")){
-//            message = ChatColor.translateAlternateColorCodes('&', message);
-//        }
-//
-//        player.sendMessage(message);
+        System.out.println(this.getConfig());
+        System.out.println(key);
+        String message = getConfig().getString("message." + key);
+        System.out.println(message);
+
+        if(message.contains("&")){
+            message = ChatColor.translateAlternateColorCodes('&', message);
+        }
+
+        player.sendMessage(message);
     }
 }

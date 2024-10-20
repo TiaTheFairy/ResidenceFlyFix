@@ -17,7 +17,7 @@ permissions:
   residenceflyfix.bypass.off:
     description: not be turned off when leave residence or lose fly flag
     default: false
-  residenceflyfix.bypass.on:
+  residenceflyfix.auto.on:
     description: not be turned on when enter residence with fly flag
     default: false
 

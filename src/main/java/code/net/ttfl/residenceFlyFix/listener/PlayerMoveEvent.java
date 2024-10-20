@@ -20,8 +20,7 @@ public class PlayerMoveEvent implements Listener {
             if(!plugin.canFly(event.getPlayer())){
                 player.setAllowFlight(false);
                 player.setFlying(false);
-                player.sendMessage("turn off on move!");
-                plugin.sendMessage("off", event.getPlayer());
+                plugin.sendMessage("turn-off", event.getPlayer());
             }
         }
     }
