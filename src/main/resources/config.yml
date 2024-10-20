@@ -1,0 +1,15 @@
+events:
+  flight: true
+  move: true
+
+blacklist-command-list:
+  - "/res tp"
+  - "/tp"
+  - "/spawn"
+  - "/back"
+  - "/warp"
+
+message:
+  on: "&aYou entered a residence area. Fly is turned on."
+  off: "&cYou left the residence area. Fly is turned off."
+  no-command: "&cPlease drop on ground before using this command."

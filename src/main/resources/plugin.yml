@@ -1,0 +1,25 @@
+name: ResidenceFlyFix
+version: '1.0-SNAPSHOT'
+main: code.net.ttfl.residenceFlyFix.ResidenceFlyFix
+api-version: '1.20'
+commands:
+  residenceflyfix:
+    usage: /residenceflyfix
+    description: residenceflyfix
+  rff:
+    usage: /residenceflyfix
+    description: residenceflyfix
+
+permissions:
+  residenceflyfix.admin:
+    description: admin command
+    default: op
+  residenceflyfix.bypass.off:
+    description: not be turned off when leave residence or lose fly flag
+    default: false
+  residenceflyfix.bypass.on:
+    description: not be turned on when enter residence with fly flag
+    default: false
+
+depend:
+  - Residence
